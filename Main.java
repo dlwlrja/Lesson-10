@@ -7,8 +7,8 @@ public class Main {
         while (true){
         String name = inputBooksName();
         int pageCount = inputPageCount();
-
-       addBook(name, pageCount);
+        int moneyCount = inputMoneyCount();
+        addBook(name, pageCount, moneyCount);
        printInfo(); }
         
     }
@@ -20,14 +20,18 @@ public class Main {
         System.out.println("Введите кол-во страниц");
         return new Scanner(System.in).nextInt();
     }
+    public static int inputMoneyCount(){
+        System.out.println("Введите стоимость книги");
+        return new Scanner(System.in).nextInt();
+    }
     public static void addBook(String bookName){
-        addBook(bookName, 0);
+        addBook(bookName, 0,0);
     }
     public static void printInfo(){
         System.out.println(booksInfo);
     }
-    public static void addBook(String bookName,int pageCount){
-        booksInfo = booksInfo + bookName + " - "+ (pageCount > 0 ? pageCount : "N/A") +" стр.\n";
+    public static void addBook(String bookName,int pageCount,int moneyCount){
+        booksInfo = booksInfo + bookName + " - "+ (pageCount > 0 ? pageCount : "N/A") +" стр.\n"+ (moneyCount > 0? moneyCount: "Не установлено")+ " злотых\n";
     }
 
 }
